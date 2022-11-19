@@ -13,10 +13,11 @@ class WebhookRequest(
     @Serializable
     data class Identity(
         val id: String,
-        val name: String?,
+        val name: String? = null,
         val type: IdentityType,
-        val email: String?,
-        val username: String?
+        val email: String? = null,
+        val username: String? = null,
+        val externalId: String? = null
     )
 
     @Serializable
@@ -34,9 +35,9 @@ class WebhookRequest(
             val latitude: Double,
             val longitude: Double,
             val timestamp: String,
-            val altitude: Float?,
-            val speedOverGround: Float?,
-            val courseOverGround: Float?
+            val altitude: Float? = null,
+            val speedOverGround: Float? = null,
+            val courseOverGround: Float? = null
         ) : Event() {
 
             val timestampInstant: Instant

@@ -17,7 +17,7 @@ class HelloSpaceController {
 
         for (payload in request.payloads) {
             val identity = payload.identity
-            println("Received payload for identity. name=${identity.name} id=${identity.id}")
+            println("Received payload for identity. name='${identity.name}' id=${identity.id}")
 
             for (event in payload.events) {
                 when (event) {
