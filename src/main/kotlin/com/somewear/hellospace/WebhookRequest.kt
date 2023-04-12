@@ -32,8 +32,8 @@ class WebhookRequest(
         @Serializable
         @SerialName("Location")
         data class Location(
-            val latitude: Double,
-            val longitude: Double,
+            val latitude: String,
+            val longitude: String,
             val timestamp: String,
             val altitude: Float? = null,
             val speedOverGround: Float? = null,
