@@ -17,6 +17,10 @@ Example webhook server that can receive webhook requests from Somewear. Webhook 
         "type": "User",
         "email": "example@example.com"
       },
+      "account": {
+        "id": "0",
+        "workspaceId": "0",
+      },
       "events": [
         {
           "type": "Location",
@@ -29,6 +33,48 @@ Example webhook server that can receive webhook requests from Somewear. Webhook 
   ]
 }
 ```
+
+### Waypoint
+``` json
+{
+  "requestId": "66ef6f9b-8870-4e18-99e1-f14ee7eae91d",
+  "payloads": [
+    {
+      ...
+      "events": [
+        {
+          "type": "Waypoint",
+          "latitude": "37.781001",
+          "longitude": "-122.393456",
+          "timestamp": "2023-04-12T19:15:14Z"
+          "name": "Example Waypoint",
+          "notes": "Example notes"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Message
+``` json
+{
+  "requestId": "66ef6f9b-8870-4e18-99e1-f14ee7eae91d",
+  "payloads": [
+    {
+      ...
+      "events": [
+        {
+          "type": "Message",
+          "timestamp": "2023-04-12T19:15:14Z"
+          "content": "Example content"
+        }
+      ]
+    }
+  ]
+}
+```
+
 
 ### Data
 Data payloads are raw bytes that you can send through Somewear. You should only use this type if as a last resort since you won't get any Somewear platform benefits for free. For example, if you're sending a coordinate and you use the Location type, the location will automatically show up on the Somewear map on the Android, iOS, web, and ATAK clients.
@@ -44,6 +90,10 @@ Data payloads are raw bytes that you can send through Somewear. You should only 
         "type": "User",
         "email": "example@example.com"
       },
+      "account": {
+        "id": "0",
+        "workspaceId": "0",
+      },
       "events": [
         {
           "type": "Data",
@@ -55,3 +105,5 @@ Data payloads are raw bytes that you can send through Somewear. You should only 
   ]
 }
 ```
+
+

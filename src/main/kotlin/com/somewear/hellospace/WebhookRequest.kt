@@ -21,8 +21,22 @@ class WebhookRequest(
     )
 
     @Serializable
+    class Account(
+        val id: String,
+        val workspaceId: String?
+    )
+
+    @Serializable
+    class Workspace(
+        val id: String,
+        val name: String
+    )
+
+    @Serializable
     class Payload(
         val identity: Identity,
+        val account: Account,
+        val workspace: Workspace?,
         val events: List<Event>
     )
 
@@ -59,6 +73,33 @@ class WebhookRequest(
 
             val payloadBytes: ByteArray
                 get() = Base64.getDecoder().decode(payload.toByteArray())
+
+            val timestampInstant: Instant
+                get() = Instant.parse(timestamp)
+        }
+
+
+
+        @Serializable
+        @SerialName("Waypoint")
+        data class Waypoint(
+            val latitude: String,
+            val longitude: String,
+            val timestamp: String,
+            val name: String,
+            val notes: String?
+        ) : Event() {
+
+            val timestampInstant: Instant
+                get() = Instant.parse(timestamp)
+        }
+
+        @Serializable
+        @SerialName("Message")
+        data class Message(
+            val content: String,
+            val timestamp: String
+        ) : Event() {
 
             val timestampInstant: Instant
                 get() = Instant.parse(timestamp)
