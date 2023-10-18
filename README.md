@@ -56,6 +56,44 @@ Example webhook server that can receive webhook requests from Somewear. Webhook 
 }
 ```
 
+### Health Activity
+
+```json
+{
+  "requestId": "e37f3184-c6b0-4f66-9b91-6304a98f1a07",
+  "payloads": [
+    {
+      "identity": {
+        "id": "0",
+        "name": "Example User",
+        "type": "User",
+        "email": "example@example.com"
+      },
+      "account": {
+        "id": "3",
+        "workspaceId": "2"
+      },
+      "workspace": {
+        "id": "2",
+        "name": "ExampleWorkspace"
+      },
+      "events": [
+        {
+          "type": "HealthActivity",
+          "timestamp": "2023-10-17T18:59:46Z",
+          "heartRate": 72,
+          "heartRateConfidence": 94,
+          "breathingRate": 12.5,
+          "breathingRateConfidence": 87,
+          "posture": 12,
+          "coreTemperature": 26.9
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### Message
 ``` json
 {
