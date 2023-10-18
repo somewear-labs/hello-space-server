@@ -59,6 +59,21 @@ class WebhookRequest(
         }
 
         @Serializable
+        @SerialName("HealthActivity")
+        data class HealthActivity(
+            val timestamp: String,
+            var heartRate: Int? = null,
+            val coreTemperature: Float? = null,
+            val breathingRate: Float? = null,
+            val heartRateConfidence: Int? = null,
+            val breathingRateConfidence: Int? = null,
+            val posture: Int? = null,
+        ) : Event() {
+            val timestampInstant: Instant
+                get() = Instant.parse(timestamp)
+        }
+
+        @Serializable
         @SerialName("Data")
         data class Data(
             /**
@@ -87,7 +102,7 @@ class WebhookRequest(
             val longitude: String,
             val timestamp: String,
             val name: String,
-            val notes: String?
+            val notes: String? = null
         ) : Event() {
 
             val timestampInstant: Instant

@@ -31,6 +31,9 @@ class HelloSpaceController {
                     is WebhookRequest.Event.Message -> {
                         println("Message event received: $event")
                     }
+                    is WebhookRequest.Event.HealthActivity -> {
+                        println("Message event received: $event")
+                    }
                     is WebhookRequest.Event.Data -> {
                         println("Data event received: $event")
                     }
