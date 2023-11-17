@@ -21,11 +21,16 @@ Example webhook server that can receive webhook requests from Somewear. Webhook 
         "id": "0",
         "workspaceId": "0",
       },
+      "workspace": {
+        "id": "0",
+        "name": "Example Workspace"
+      },
       "events": [
         {
           "type": "Location",
           "latitude": "37.781001",
           "longitude": "-122.393456",
+          "altitude": "1000.0",
           "timestamp": "2023-04-12T19:15:14Z"
         }
       ]
